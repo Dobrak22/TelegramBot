@@ -20,9 +20,12 @@ namespace BotTG
         //Кнопки
         #region
         private const string Text_1 = "Профиль";
-        private const string Text_2 = "Команды";
+        private const string Text_2 = "Игра";
         private const string Text_3 = "Контакты";
         private const string Text_4 = "Закончить";
+        private const string Text_5 = "Камень/Ножницы/Бумага";
+        private const string Text_6 = "Назад";
+
         #endregion
 
         //Основа всего кода с токеном
@@ -49,11 +52,12 @@ namespace BotTG
             switch (message.Text)
             {
                 case Text_1:
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "Никнейм: " + update.Message.Chat.FirstName);
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "Никнейм: " + update.Message.Chat.FirstName );
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Ну, а продолжение профиля увидите в следующем месяце.");
                     break;
                 case Text_2:
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "В разработке....");
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "Вы перешли в раздел  с играми, потихоньку их будет становиться больше. Если автор не найдет себе работу, а так пока ждите обнов. :)", replyMarkup: BotButtons.GameButtons());
+                    
                     break;
                 case Text_3:
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Вопросы по сотрудничеству, предлогать по номеру +7991-213-88-79. " + " Если же имеется желание, то донатить можно.");
@@ -62,6 +66,14 @@ namespace BotTG
                     await botClient.SendTextMessageAsync(message.Chat.Id, "До встречи, но если появиться желание вернуться, то просто напиши \"/start\".");
 
                     break;
+            }
+            if (message.Text == Text_5)
+            {
+                await botClient.SendTextMessageAsync(message.Chat.Id, "В стадии разработки..");
+            }
+            if (message.Text == Text_6)
+            {
+                await botClient.SendTextMessageAsync(message.Chat.Id, "В стадии разработки....");
             }
         }
 
@@ -89,7 +101,25 @@ namespace BotTG
                     new KeyboardButton(Text_3),
                     new KeyboardButton(Text_4),
                 }
-            }); ;
+            })
+            {
+                ResizeKeyboard = true
+            };
+        }
+        private IReplyMarkup GameButtons()
+        {
+            return new ReplyKeyboardMarkup(new[]
+            {
+                //первый ряд кнопок
+                new[]
+                {
+                    new KeyboardButton(Text_5),
+                    new KeyboardButton(Text_6),
+                }
+            })
+            {
+                ResizeKeyboard = true
+            };
         }
     }
 }

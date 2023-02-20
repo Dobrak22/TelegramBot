@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yXBXJ32MhbuUduC8lVW/bIXLBRwYn8iIkN7Be1HGIpwQhH7S7YFvCiN40Il3HhRbYEeyy0eTzG98Bgm74/y4fA==",
+  "dgSpecHash": "x//188FceXd3hfrGFFAeHds852SdLCOajbZvMZVpOcPlyfm3MtNGCPHiepHieTXPXjQCydOYtchE48pL3EbCHw==",
   "success": true,
-  "projectFilePath": "C:\\Вижуал\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj",
+  "projectFilePath": "C:\\GitHUbe\\TelegramBot\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\й\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\й\\.nuget\\packages\\telegram.bot\\18.0.0\\telegram.bot.18.0.0.nupkg.sha512"

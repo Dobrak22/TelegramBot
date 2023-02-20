@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Вижуал\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj": {}
+    "C:\\GitHUbe\\TelegramBot\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj": {}
   },
   "projects": {
-    "C:\\Вижуал\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj": {
+    "C:\\GitHUbe\\TelegramBot\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Вижуал\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj",
+        "projectUniqueName": "C:\\GitHUbe\\TelegramBot\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj",
         "projectName": "ТелеграммБот",
-        "projectPath": "C:\\Вижуал\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj",
+        "projectPath": "C:\\GitHUbe\\TelegramBot\\ТелеграммБот\\ТелеграммБот\\ТелеграммБот.csproj",
         "packagesPath": "C:\\Users\\й\\.nuget\\packages\\",
-        "outputPath": "C:\\Вижуал\\ТелеграммБот\\ТелеграммБот\\obj\\",
+        "outputPath": "C:\\GitHUbe\\TelegramBot\\ТелеграммБот\\ТелеграммБот\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
