@@ -19,13 +19,16 @@ namespace BotTG
 
         //Кнопки
         #region
-        private const string Text_1 = "Профиль";
-        private const string Text_2 = "Игра";
-        private const string Text_3 = "Контакты";
-        private const string Text_4 = "Закончить";
-        private const string Text_5 = "Камень/Ножницы/Бумага";
-        private const string Text_6 = "Назад";
-
+        private const string Profile = "Профиль";
+        private const string Game = "Игра";
+        private const string Contact = "Контакты";
+        private const string Finish = "Закончить";
+        private const string OneGame = "Камень/Ножницы/Бумага";
+        private const string Back = "Назад"; 
+        private const string Stone = "Камень";
+        private const string scissors = "Ножницы";
+        private const string paper = "Бумага";
+        private const string Cancel = "Отмена";
         #endregion
 
         //Основа всего кода с токеном
@@ -51,29 +54,35 @@ namespace BotTG
             }
             switch (message.Text)
             {
-                case Text_1:
+                case Profile:
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Никнейм: " + update.Message.Chat.FirstName );
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Ну, а продолжение профиля увидите в следующем месяце.");
                     break;
-                case Text_2:
+                case Game:
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Вы перешли в раздел  с играми, потихоньку их будет становиться больше. Если автор не найдет себе работу, а так пока ждите обнов. :)", replyMarkup: BotButtons.GameButtons());
                     
                     break;
-                case Text_3:
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "Вопросы по сотрудничеству, предлогать по номеру +7991-213-88-79. " + " Если же имеется желание, то донатить можно.");
+                case Contact:
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "Вопросы по сотрудничеству, предлогать по номеру приложеному ниже. " + " Если же имеется желание, то донатить можно.");
+                    await botClient.SendContactAsync(message.Chat.Id, phoneNumber: "+79912138879", firstName: "Ara", lastName: "Company");
                     break;
-                case Text_4:
+                case Finish:
                     await botClient.SendTextMessageAsync(message.Chat.Id, "До встречи, но если появиться желание вернуться, то просто напиши \"/start\".");
-
                     break;
             }
-            if (message.Text == Text_5)
+            if (message.Text == OneGame)
             {
-                await botClient.SendTextMessageAsync(message.Chat.Id, "В стадии разработки..");
+                await botClient.SendTextMessageAsync(message.Chat.Id, "Выбирай", replyMarkup: BotButtons.tsuefa());
             }
-            if (message.Text == Text_6)
+            if (message.Text == Back)
             {
-                await botClient.SendTextMessageAsync(message.Chat.Id, "В стадии разработки....");
+                await botClient.SendTextMessageAsync(message.Chat.Id,"Переход в основное меню.", replyMarkup: BotButtons.GetButtons());
+                
+            }
+            if (message.Text == Cancel)
+            {
+                await botClient.SendTextMessageAsync(message.Chat.Id, "Переход в основное меню.", replyMarkup: BotButtons.GetButtons());
+
             }
         }
 
@@ -83,29 +92,32 @@ namespace BotTG
             throw new NotImplementedException();
         }
 
-        //Создание кнопок для бота
+        //Основное меню
         private IReplyMarkup GetButtons()
         {
-
             return new ReplyKeyboardMarkup(new[]
             {
                 //первый ряд кнопок
                 new[]
                 {
-                    new KeyboardButton(Text_1),
-                    new KeyboardButton(Text_2),
+                    //Сами кнопки
+                    new KeyboardButton(Profile),
+                    new KeyboardButton(Game),
                 },
                 //второй ряд кнопок
                 new[]
                 {
-                    new KeyboardButton(Text_3),
-                    new KeyboardButton(Text_4),
+                    //Сами кнопки
+                    new KeyboardButton(Contact),
+                    new KeyboardButton(Finish),
                 }
             })
             {
                 ResizeKeyboard = true
             };
         }
+
+        //Меню с играми
         private IReplyMarkup GameButtons()
         {
             return new ReplyKeyboardMarkup(new[]
@@ -113,8 +125,30 @@ namespace BotTG
                 //первый ряд кнопок
                 new[]
                 {
-                    new KeyboardButton(Text_5),
-                    new KeyboardButton(Text_6),
+                    new KeyboardButton(OneGame),
+                    new KeyboardButton(Back),
+                }
+            })
+            {
+                ResizeKeyboard = true
+            };
+        }
+
+        //Игра камень/ножницы/бумага
+        private IReplyMarkup tsuefa()
+        {
+            return new ReplyKeyboardMarkup(new[]
+            {
+                //первый ряд кнопок
+                new[]
+                {
+                    new KeyboardButton(Stone),
+                    new KeyboardButton(scissors),
+                },
+                new[]
+                {
+                    new KeyboardButton(paper),
+                    new KeyboardButton(Cancel),
                 }
             })
             {
